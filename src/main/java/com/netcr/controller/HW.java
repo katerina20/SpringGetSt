@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class HW {
@@ -24,6 +25,7 @@ public class HW {
 
     @GetMapping("/flowerList")
     public String showFlowerList(Model model) {
+        Locale.setDefault(Locale.ENGLISH);
         List<Flower> flowers = flowerRepo.getAll();
         model.addAttribute("flowers", flowers);
         return "db_page";
